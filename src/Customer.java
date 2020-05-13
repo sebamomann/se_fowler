@@ -10,19 +10,13 @@ class Customer {
         name = newname;
     }
 
-    ;
-
     public void addRental(Rental arg) {
         rentals.addElement(arg);
     }
 
-    ;
-
     public String getName() {
         return name;
     }
-
-    ;
 
     public String statement() {
         double totalAmount = 0;
@@ -45,6 +39,7 @@ class Customer {
             result += "\t" + each.getMovie().getTitle() + "\t" + "\t" + each.getDaysRented() + "\t" + String.valueOf(thisAmount) + "\n";
             totalAmount += thisAmount;
         }
+
         //add footer lines
         result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
         result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points";
@@ -53,6 +48,7 @@ class Customer {
 
     private double amountFor(Rental each) {
         double thisAmount = 0;
+
         switch (each.getMovie().getPriceCode()) {
             case Movie.REGULAR:
                 thisAmount += 2;
@@ -68,7 +64,7 @@ class Customer {
                     thisAmount += (each.getDaysRented() - 3) * 1.5;
                 break;
         }
+
         return thisAmount;
     }
-
 }
