@@ -23,8 +23,15 @@ class Customer {
         int frequentRenterPoints = 0;
 
         Enumeration<Rental> enum_rentals = rentals.elements();
-        String result = "Rental Record for " + this.getName() + "\n";
-        result += "\t" + "Title" + "\t" + "\t" + "Days" + "\t" + "Amount" + "\n";
+        StringBuilder result = new StringBuilder("Rental Record for " + this.getName() + "\n");
+        result.append("\t");
+        result.append("Title");
+        result.append("\t");
+        result.append("\t");
+        result.append("Days");
+        result.append("\t");
+        result.append("Amount");
+        result.append("\n");
 
         while (enum_rentals.hasMoreElements()) {
             double thisAmount = 0;
@@ -37,14 +44,14 @@ class Customer {
             if ((each.getMovie().getPriceCode() == Movie.NEW_RELEASE) && each.getRentedDays() > 1)
                 frequentRenterPoints++;
             //show figures for this rental
-            result += "\t" + each.getMovie().getTitle() + "\t" + "\t" + each.getRentedDays() + "\t" + String.valueOf(thisAmount) + "\n";
+            result.append("\t").append(each.getMovie().getTitle()).append("\t").append("\t").append(each.getRentedDays()).append("\t").append(thisAmount).append("\n");
             totalAmount += thisAmount;
         }
 
         //add footer lines
-        result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
-        result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points";
-        return result;
+        result.append("Amount owed is ").append(totalAmount).append("\n");
+        result.append("You earned ").append(frequentRenterPoints).append(" frequent renter points");
+        return result.toString();
     }
 
     private double amountFor(Rental rental) {
