@@ -2,12 +2,12 @@ class Rental {
     private final Movie movie;
     private final int daysRented;
 
-    public Rental(Movie newmovie, int newdaysRented) {
-        movie = newmovie;
-        daysRented = newdaysRented;
+    public Rental(Movie movie, int rentedDays) {
+        this.movie = movie;
+        daysRented = rentedDays;
     }
 
-    public int getDaysRented() {
+    public int getRentedDays() {
         return daysRented;
     }
 
