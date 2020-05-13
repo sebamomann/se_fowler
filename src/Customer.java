@@ -40,10 +40,18 @@ class Customer {
             // add frequent renter points
             frequentRenterPoints++;
             // add bonus for a two day new release rental
-            if ((each.getMovie().getPriceCode() == Movie.NEW_RELEASE) && each.getRentedDays() > 1)
+            if ((each.getMovie().getPriceCode() == Movie.NEW_RELEASE) && each.getRentedDays() > 1) {
                 frequentRenterPoints++;
+            }
             //show figures for this rental
-            result.append("\t").append(each.getMovie().getTitle()).append("\t").append("\t").append(each.getRentedDays()).append("\t").append(thisAmount).append("\n");
+            result.append("\t");
+            result.append(each.getMovie().getTitle());
+            result.append("\t");
+            result.append("\t");
+            result.append(each.getRentedDays());
+            result.append("\t");
+            result.append(thisAmount);
+            result.append("\n");
             totalAmount += thisAmount;
         }
 
